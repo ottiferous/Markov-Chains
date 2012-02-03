@@ -1,9 +1,13 @@
-#! usr/bin/ruby
+#! usr/bin/ruby -i
 
     class MarkovDictionary
 
         def initialize
             @dictionary = {}
+        end
+
+        def dictionary
+            @dictionary
         end
 
         def add_word(first, second)
@@ -22,12 +26,6 @@
                 self.add_word(@contents[i], @contents[i+1])
             end
         end
-
-        def put()
-            for element in @dictionary do
-                puts element
-            end
-        end
    end
 
    class MarkovText
@@ -42,24 +40,34 @@
             keys[rand(keys.length)]
         end
 
-        def select_word(dictionary)
-            
+        def generate(word_count)
+            @sentence << seed
+            word_count.times do |_|
+                @sentence << next_word(@sentence.last)
+            end
+            @sentence.join(' ')
+        end
 
-        def construct(length)
-            
-            length.times do
-                total = @dictionary[@sentence.last].values.inject(0) { |sum, value| sum + value }
+        def next_word(word)
+            total = @dictionary[word].values.inject(0) { |sum, value| sum + value }
+            random = rand(total)+1
 
-                until total < 1
-                    total -= @dictionary[@sentence.last].value
-
-
+            @dictionary[word].each do |key, occurs|
+                random -= occurs
+                if random < 1
+                    return word
+                end
             end
         end
+
     end
 
-   if __FILE__ == $0
+    if __FILE__ == $0
+
+        file = ARGV[0] || "Frankentext.txt"
+        wordcount = ARGV[1] || 200
+
         data = MarkovDictionary.new()
-        data.parse("rubytest")
-        data.put()
+        result = MarkovText.new(data.dictionary)
+        puts result.generate(wordcount.to_i)
    end
