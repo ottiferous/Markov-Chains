@@ -2,8 +2,10 @@
 
     class MarkovDictionary
 
-        def initialize
+        def initialize(text_source)
             @dictionary = {}
+            @file = text_source
+            self.parse_file
         end
 
         def dictionary
@@ -15,20 +17,15 @@
             @dictionary[first][second] += 1
         end
 
-        def read_file(path)
-            File.open(path).read.split
-        end
-
-        def parse(text_file)
-            @contents = read_file(text_file)
-
+        def parse_file
+            @contents = File.open(@file, "r").read.split
             (@contents.length-1).times do |i|
                 self.add_word(@contents[i], @contents[i+1])
             end
         end
    end
 
-   class MarkovText
+   class SentenceGenerator
 
         def initialize(dictionary)
             @dictionary = dictionary
@@ -43,19 +40,19 @@
         def generate(word_count)
             @sentence << seed
             word_count.times do |_|
-                @sentence << next_word(@sentence.last)
+                @sentence << weighted_random(@sentence.last)
             end
             @sentence.join(' ')
         end
 
-        def next_word(word)
+        def weighted_random(word)
             total = @dictionary[word].values.inject(0) { |sum, value| sum + value }
             random = rand(total)+1
 
             @dictionary[word].each do |key, occurs|
                 random -= occurs
                 if random < 1
-                    return word
+                    return key
                 end
             end
         end
@@ -67,7 +64,7 @@
         file = ARGV[0] || "Frankentext.txt"
         wordcount = ARGV[1] || 200
 
-        data = MarkovDictionary.new()
-        result = MarkovText.new(data.dictionary)
+        data = MarkovDictionary.new(file)
+        result = SentenceGenerator.new(data.dictionary)
         puts result.generate(wordcount.to_i)
    end
