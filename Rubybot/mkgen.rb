@@ -1,5 +1,5 @@
-load 'MarkovDictionary.rb'
-load 'SentenceGenerator.rb'
+require_relative 'MarkovDictionary.rb'
+require_relative 'SentenceGenerator.rb'
 
 if __FILE__ == $0
 
