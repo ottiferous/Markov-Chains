@@ -22,3 +22,20 @@ class MarkovDictionary
         end
     end
 end
+
+class TwoWordDictionary < MarkovDictionary
+
+    def add_word(root, suffix)
+        @dictionary[root] ||= Hash.new(0)
+        @dictionary[root][suffix] ||= Hash.new(0)
+        @dictionary[root][suffix] += 1
+    end
+
+    def parse_file
+        @contents = File.open(@file, "r").read.split
+        (@contents.length-3).times do |i|
+            rootword = "#{@contents[i]} #{@contents[i+1]}"
+            self.add_word(rootword, @contents[i+2])
+        end
+    end
+end
