@@ -1,6 +1,6 @@
 require 'watir-webdriver'
 
-class Facebook
+class FaceDriver
 
 	def initialize
 		@b = Watir::Browser.new :chrome

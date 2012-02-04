@@ -1,9 +1,9 @@
-require_relative 'fbbot.rb'
+require_relative 'FaceDriver.rb'
 require_relative 'SentenceGenerator.rb'
 require_relative 'MarkovDictionary'
 
 if __FILE__ == $0
-	connect = Facebook.new
+	connect = FaceDriver.new
 	connect.login(ARGV[0], ARGV[1])
 
 	data = TwoWordDictionary.new('wall.txt')
