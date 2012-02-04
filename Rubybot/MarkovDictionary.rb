@@ -42,11 +42,11 @@ end
 class PersistentDictionary < TwoWordDictionary
 
 	def load_dic(filename)
-
+		"This function is not yet implemented"
 	end
 
 	def save_dic
-
+		"This function is not yet implemented"
 	end
 
 end

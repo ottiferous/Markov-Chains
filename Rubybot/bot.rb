@@ -1,27 +1,16 @@
-require 'watir-webdriver'
-require 'headless'
+require_relative 'fbbot.rb'
+require_relative 'SentenceGenerator.rb'
+require_relative 'MarkovDictionary'
 
-login = ""
-password = ""
+if __FILE__ == $0
+	connect = Facebook.new
+	connect.login(ARGV[0], ARGV[1])
 
-message = "I'm not supposed to be here, @Matthew Furden"
+	data = TwoWordDictionary.new('wall.txt')
+	result = TwoSentenceGen.new(data.dictionary)
+	message = result.generate(8)
 
-headless = Headless.new
-headless.start
-
-b = Watir::Browser.new :chrome
-b.goto 'facebook.com'
-b.text_field(:id => 'email').set login
-b.text_field(:id => 'pass').set password
-b.input(:value => "Log In").click
-
-b.text_field(:class => 'uiTextareaAutogrow input mentionsTextarea textInput').set message
-b.send_keys :enter
-b.input(:value => 'Post').click
-b.div(:class => 'menuPulldown').click
-b.input(:value => 'Log Out').click
-b.send_keys :enter
-b.close
-
-Headless.destroy
-
+	connect.post(message)
+	connect.logout
+	connect.close
+end
