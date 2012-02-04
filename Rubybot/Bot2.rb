@@ -8,6 +8,6 @@ if __FILE__ == $0
 
     data = TwoWordDictionary.new(file)
     result = TwoSentenceGen.new(data.dictionary)
-    puts result.generate(wordcount.to_i)
+    puts result.generate(wordcount.to_i-1)
 
 end

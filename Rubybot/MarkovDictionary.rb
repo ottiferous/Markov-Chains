@@ -2,8 +2,7 @@ class MarkovDictionary
 
     def initialize(text_source)
         @dictionary = {}
-        @file = text_source
-        self.parse_file
+        self.parse_file(text_source)
     end
 
     def dictionary
@@ -15,10 +14,10 @@ class MarkovDictionary
         @dictionary[first][second] += 1
     end
 
-    def parse_file
-        @contents = File.open(@file, "r").read.split
-        (@contents.length-1).times do |i|
-            self.add_word(@contents[i], @contents[i+1])
+    def parse_file(file)
+        contents = File.open(file, "r").read.split
+        (contents.length-1).times do |i|
+            self.add_word(contents[i], contents[i+1])
         end
     end
 end
@@ -31,11 +30,23 @@ class TwoWordDictionary < MarkovDictionary
         @dictionary[root][suffix] += 1
     end
 
-    def parse_file
-        @contents = File.open(@file, "r").read.split
-        (@contents.length-3).times do |i|
-            rootword = "#{@contents[i]} #{@contents[i+1]}"
-            self.add_word(rootword, @contents[i+2])
+    def parse_file(file)
+        contents = File.open(file, "r").read.split
+        (contents.length-3).times do |i|
+            rootword = "#{contents[i]} #{contents[i+1]}"
+            self.add_word(rootword, contents[i+2])
         end
     end
+end
+
+class PersistentDictionary < TwoWordDictionary
+
+	def load_dic(filename)
+
+	end
+
+	def save_dic
+
+	end
+
 end

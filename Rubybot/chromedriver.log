@@ -1,0 +1,65 @@
+[0.000][INFO]:      ChromeDriver 18.0.1022.0 /usr/local/bin/chromedriver
+[0.192][FINE]:      Initializing session with capabilities {
+   "browserName": "chrome",
+   "chrome.detach": true,
+   "chromeOptions": {
+      "detach": true
+   },
+   "cssSelectorsEnabled": true,
+   "javascriptEnabled": true,
+   "nativeEvents": false,
+   "platform": "ANY",
+   "rotatable": false,
+   "takesScreenshot": false,
+   "version": ""
+}
+
+[0.194][INFO]:      Using named testing interface
+[1.211][INFO]:      Connected to Chrome successfully. Version: 16.0.912.77
+[1.243][FINE]:      Command received (/session/e43ea6b43ffc747f9345ba54cb365a36)
+[1.244][FINE]:      Command finished (/session/e43ea6b43ffc747f9345ba54cb365a36) with response {
+   "sessionId": "e43ea6b43ffc747f9345ba54cb365a36",
+   "status": 0,
+   "value": {
+      "acceptSslCerts": false,
+      "applicationCacheEnabled": false,
+      "browserConnectionEnabled": false,
+      "browserName": "chrome",
+      "chrome.chromedriverVersion": "18.0.1022.0",
+      "chrome.nativeEvents": false,
+      "cssSelectorsEnabled": true,
+      "databaseEnabled": false,
+      "handlesAlerts": true,
+      "javascriptEnabled": true,
+      "locationContextEnabled": false,
+      "nativeEvents": true,
+      "platform": "mac",
+      "rotatable": false,
+      "takesScreenshot": true,
+      "version": "16.0.912.77",
+      "webStorageEnabled": false
+   }
+}
+
+[1.246][FINE]:      Command received (/session/e43ea6b43ffc747f9345ba54cb365a36/url)
+[1.246][FINER]:     Waiting for all views to stop loading...
+[1.247][FINER]:     Done waiting for all views to stop loading
+[1.273][FINER]:     Waiting for all views to stop loading...
+[1.273][FINER]:     Done waiting for all views to stop loading
+[1.273][FINE]:      Command finished (/session/e43ea6b43ffc747f9345ba54cb365a36/url) with response {
+   "sessionId": "e43ea6b43ffc747f9345ba54cb365a36",
+   "status": 0,
+   "value": "about:blank"
+}
+
+[1.275][FINE]:      Command received (/session/e43ea6b43ffc747f9345ba54cb365a36/title)
+[1.275][FINER]:     Waiting for all views to stop loading...
+[1.276][FINER]:     Done waiting for all views to stop loading
+[1.286][FINER]:     Waiting for all views to stop loading...
+[1.287][FINER]:     Done waiting for all views to stop loading
+[1.287][FINE]:      Command finished (/session/e43ea6b43ffc747f9345ba54cb365a36/title) with response {
+   "sessionId": "e43ea6b43ffc747f9345ba54cb365a36",
+   "status": 0,
+   "value": "about:blank"
+}
+

@@ -43,8 +43,7 @@ class TwoSentenceGen < SentenceGenerator
 
     def generate(word_count)
         sentence = []
-        x,y = random_word.split
-        sentence << x << y
+        sentence.concat(random_word.split)
 
         (word_count-1).times do
             sentence << weighted_random("#{sentence[sentence.length-2]} #{sentence.last}")
