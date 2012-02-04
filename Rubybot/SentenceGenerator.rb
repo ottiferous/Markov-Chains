@@ -1,5 +1,4 @@
 class SentenceGenerator
-
     def initialize(dictionary)
         @dictionary = dictionary
     end
