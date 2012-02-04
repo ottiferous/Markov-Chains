@@ -7,7 +7,7 @@ if __FILE__ == $0
     wordcount = ARGV[1] || 200
 
     data = TwoWordDictionary.new(file)
-    result = SentenceGenerator.new(data.dictionary)
+    result = TwoSentenceGen.new(data.dictionary)
     puts result.generate(wordcount.to_i)
 
 end
