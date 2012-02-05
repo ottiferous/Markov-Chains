@@ -50,11 +50,15 @@ end
 class PersistentDictionary < TwoWordDictionary
 
 	def initialize
-		@dictionary = JSON.parse(File.read('dict.json'))
+		@dictionary = {}
 	end
 
-	def save_dic
-		File.open('dict.json', 'w') { |f| f.write(JSON.generate(@dictionary)) }
+	def load(filename)
+		@dictionary = JSON.parse(File.read(filename))
+	end
+	
+	def save_dic(filename)
+		File.open(filename, 'w') { |f| f.write(JSON.generate(@dictionary)) }
 	end
 
 	def merge_with(newdict)

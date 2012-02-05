@@ -3,9 +3,10 @@ require_relative 'SentenceGenerator.rb'
 
 if __FILE__ == $0
 
-    wordcount = ARGV[0] || 20
+		filename = ARGV[0] || 'dict.json'
+    wordcount = ARGV[1] || 20
 
-    data = PersistentDictionary.new
+    data = PersistentDictionary.new(filename)
     result = TwoSentenceGen.new(data.dictionary)
     (1..10).each { puts result.generate(wordcount.to_i-1) }
 
