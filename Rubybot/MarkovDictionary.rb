@@ -1,3 +1,5 @@
+require 'json'
+
 class MarkovDictionary
 
     def initialize(text_source)
@@ -42,11 +44,11 @@ end
 class PersistentDictionary < TwoWordDictionary
 
 	def load_dic(filename)
-		"This function is not yet implemented"
+
 	end
 
-	def save_dic
-		"This function is not yet implemented"
+	def save_dic(data)
+		File.open('dict.mkv', 'w') { |f| f.write(@dictionary) }
 	end
 
 end
