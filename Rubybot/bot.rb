@@ -7,7 +7,7 @@ if __FILE__ == $0
 	connect.login(ARGV[0], ARGV[1])
 
 	data = PersistentDictionary
-	data.load('wall.json')
+	data.load('dict/wall.json')
 	result = TwoSentenceGen.new(data.dictionary)
 	message = result.generate(8)
 
