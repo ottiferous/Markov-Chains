@@ -6,7 +6,8 @@ if __FILE__ == $0
 	connect = FaceDriver.new
 	connect.login(ARGV[0], ARGV[1])
 
-	data = PersistentDictionary.new('wall.json')
+	data = PersistentDictionary
+	data.load('wall.json')
 	result = TwoSentenceGen.new(data.dictionary)
 	message = result.generate(8)
 
