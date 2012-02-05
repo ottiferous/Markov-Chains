@@ -44,11 +44,11 @@ end
 class PersistentDictionary < TwoWordDictionary
 
 	def load_dic(filename)
-
+		JSON.parse(File.read('dict.json')) if File::exists?('dict.json')
 	end
 
 	def save_dic(data)
-		File.open('dict.mkv', 'w') { |f| f.write(@dictionary) }
+		File.open('dict.json', 'w') { |f| f.write(JSON.generate(@dictionary)) }
 	end
 
 end
