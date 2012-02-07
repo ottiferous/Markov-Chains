@@ -3,17 +3,15 @@ RubyBot
 ======================
 A Facebook Connection Gem
 
-Core 
-----------------------
-### MarkovDictionary.rb
-### SentenceGenerator.rb
-
 Main
 ----------------------
-FaceDriver
-Markov
-Bot
-Facenize
+### Markov
+> ruby Markov.rb file length
+
+Markov will generate a block of text wordcount
+
+### Bot
+### Facenize
 
 Utilities
 ----------------------
@@ -21,6 +19,11 @@ Utilities
 ### mkgen
 ### pstext
 
+Core 
+----------------------
+### MarkovDictionary
+### SentenceGenerator
+### FaceDriver
 
 This program takes a source file of text and then generates markov chains.
 
