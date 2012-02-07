@@ -1,9 +1,26 @@
 
-MARKOV CHAIN GENERATOR
+RubyBot
 ======================
+A Facebook Connection Gem
 
-Program for generating random text for all manner of nefarious purposes
+Core 
 ----------------------
+### MarkovDictionary.rb
+### SentenceGenerator.rb
+
+Main
+----------------------
+FaceDriver
+Markov
+Bot
+Facenize
+
+Utilities
+----------------------
+### makedict
+### mkgen
+### pstext
+
 
 This program takes a source file of text and then generates markov chains.
 
